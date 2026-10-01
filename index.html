@@ -2,167 +2,223 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Kevin Zou - Finance student at Rutgers Business School, Class of 2028. Portfolio of skills and projects.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Kevin Zou - Finance student at Rutgers Business School, Class of 2028.">
 <title>Kevin Zou | Finance Portfolio</title>
-<script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Inter', system-ui, sans-serif; }
-  section[id] { scroll-margin-top: 80px; }
+:root{--bg:#f6f1e7;--ink:#14110f;--mute:#6b645b;--line:#d9d1c2;--red:#cc0033;--card:#fffdf8;--dark:#14110f}
+@media(prefers-color-scheme:dark){:root{--bg:#14110f;--ink:#f6f1e7;--mute:#a79f93;--line:#3a342d;--card:#1d1916;--dark:#0b0908}}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:16px/1.65 Inter,system-ui,sans-serif}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:0;z-index:9;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav{display:flex;justify-content:space-between;align-items:center;height:60px}
+.logo{font-family:Fraunces,serif;font-weight:800;text-decoration:none;font-size:20px}
+.logo i{color:var(--red);font-style:normal}
+nav ul{display:flex;gap:22px;list-style:none;padding:0;font-size:14px;font-weight:500}
+nav a{text-decoration:none;color:var(--mute)}nav a:hover{color:var(--red)}
+.hero{padding:84px 0 64px;display:grid;grid-template-columns:1fr 220px;gap:48px;align-items:center}
+.tag{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--red)}
+h1{font-family:Fraunces,serif;font-weight:800;font-size:clamp(40px,7vw,76px);line-height:1.02;letter-spacing:-.03em;margin:14px 0 22px}
+h1 em{color:var(--red);font-style:italic}
+.lead{font-size:20px;color:var(--mute);max-width:640px}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{padding:12px 22px;border-radius:4px;font-weight:600;font-size:14px;text-decoration:none;border:1.5px solid var(--ink)}
+.btn.p{background:var(--red);border-color:var(--red);color:#fff}
+.btn:hover{transform:translateY(-2px)}
+.photo{width:220px;height:260px;border-radius:120px 120px 8px 8px;background:var(--red);display:grid;place-items:center;font:800 64px Fraunces,serif;color:#fff;overflow:hidden;position:relative}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ticker{background:var(--dark);color:#f6f1e7;overflow:hidden;white-space:nowrap;padding:12px 0;font:500 13px 'JetBrains Mono',monospace}
+.ticker div{display:inline-block;animation:t 32s linear infinite}
+.ticker span{margin:0 22px}.ticker b{color:#ff5b7f}
+@keyframes t{to{transform:translateX(-50%)}}
+section{padding:84px 0}
+h2{font-family:Fraunces,serif;font-size:clamp(30px,4.5vw,46px);letter-spacing:-.02em;line-height:1.1;margin:8px 0 14px}
+.sub{color:var(--mute);max-width:620px}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:40px}
+.sk{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:26px}
+.sk h3{font-family:'JetBrains Mono',monospace;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--red);margin-bottom:14px}
+.sk li{list-style:none;padding:9px 0;border-top:1px solid var(--line);font-size:15px}
+.sk li:first-of-type{border:0}
+.proj{margin-top:40px;display:grid;gap:18px}
+details{background:var(--card);border:1px solid var(--line);border-radius:8px;transition:.2s}
+details[open]{border-color:var(--red);box-shadow:0 12px 40px -20px rgba(204,0,51,.5)}
+summary{list-style:none;cursor:pointer;padding:26px;display:grid;grid-template-columns:56px 1fr auto;gap:18px;align-items:start}
+summary::-webkit-details-marker{display:none}
+.num{font:800 34px Fraunces,serif;color:var(--red)}
+summary h3{font-family:Fraunces,serif;font-size:24px;line-height:1.2}
+summary p{color:var(--mute);margin-top:6px;font-size:15px}
+.chip{font:500 11px 'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.06em;border:1px solid var(--line);border-radius:99px;padding:3px 10px;color:var(--mute);margin-right:6px;display:inline-block;margin-top:10px}
+.plus{font-size:28px;color:var(--red);transition:.2s}
+details[open] .plus{transform:rotate(45deg)}
+.body{padding:0 26px 28px 100px;border-top:1px solid var(--line);padding-top:22px}
+.body h4{font:500 12px 'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--red);margin:20px 0 8px}
+.body h4:first-child{margin-top:0}
+.body ul{padding-left:18px}.body li{margin:4px 0}
+table{width:100%;border-collapse:collapse;font:13px 'JetBrains Mono',monospace;margin:6px 0}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:right}
+th:first-child,td:first-child{text-align:left}
+th{color:var(--mute);font-weight:500}
+.wrapx{overflow-x:auto}
+pre{background:var(--dark);color:#f6f1e7;padding:18px;border-radius:6px;overflow-x:auto;font:12.5px/1.6 'JetBrains Mono',monospace}
+.note{font-size:13px;color:var(--mute);font-style:italic;margin-top:8px}
+.contact{background:var(--dark);color:#f6f1e7;text-align:center}
+.contact h2{font-size:clamp(34px,6vw,60px)}
+.contact p{color:#a79f93;margin-bottom:28px}
+.contact .btn{border-color:#f6f1e7;color:#f6f1e7}.contact .btn.p{border-color:var(--red)}
+footer{background:var(--dark);color:#7d756a;text-align:center;font-size:12px;padding:0 0 28px}
+@media(max-width:760px){
+.hero{grid-template-columns:1fr;padding-top:48px}.photo{order:-1;width:140px;height:170px;font-size:42px}
+summary{grid-template-columns:1fr auto}.num{display:none}.body{padding-left:26px}
+nav ul{gap:14px}}
 </style>
 </head>
-<body class="bg-white text-slate-800 antialiased">
+<body>
+<header><div class="wrap"><nav>
+<a class="logo" href="#top">Kevin Zou<i>.</i></a>
+<ul><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li><li><a href="#contact">Contact</a></li></ul>
+</nav></div></header>
 
-<!-- Nav -->
-<header class="fixed top-0 inset-x-0 z-50 bg-slate-950/90 backdrop-blur border-b border-white/10">
-  <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-    <a href="#top" class="text-white font-bold tracking-tight">Kevin <span class="text-red-500">Zou</span></a>
-    <div class="flex items-center gap-4 sm:gap-8 text-sm font-medium text-slate-300">
-      <a href="#skills" class="hover:text-white transition">Skills</a>
-      <a href="#projects" class="hover:text-white transition">Projects</a>
-      <a href="#contact" class="hover:text-white transition">Contact</a>
-      <a href="resume.pdf" class="hidden sm:inline-block bg-red-600 hover:bg-red-500 text-white px-4 py-2 rounded-full text-xs font-semibold transition">Resume</a>
-    </div>
-  </nav>
-</header>
+<main id="top">
+<div class="wrap hero">
+<div>
+<p class="tag">Rutgers Business School · Finance · Class of 2028</p>
+<h1>Hi, I'm Kevin Zou.<br><em>I study markets daily.</em></h1>
+<p class="lead">I'm a Rutgers finance student who studies the markets every day, from actively traded stocks and ETFs to long-term holdings, to build sharp, disciplined investment judgment.</p>
+<div class="btns">
+<a class="btn p" href="#projects">View my projects</a>
+<a class="btn" href="https://www.linkedin.com/in/kevinzou21/" target="_blank" rel="noopener">LinkedIn →</a>
+</div>
+</div>
+<div class="photo">KZ<img src="headshot.jpg" alt="Headshot of Kevin Zou" onerror="this.remove()"></div>
+</div>
 
-<!-- Hero / Personal Statement -->
-<section id="top" class="relative bg-gradient-to-br from-slate-950 via-slate-900 to-red-950 text-white pt-32 pb-24 md:pt-40 md:pb-32">
-  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-12 gap-10 items-center">
-    <div class="md:col-span-8">
-      <p class="inline-block text-xs font-semibold uppercase tracking-widest text-red-300 bg-white/10 rounded-full px-4 py-1.5 mb-6">Rutgers Business School &bull; Finance &bull; Class of 2028</p>
-      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">Hi, I'm Kevin Zou.</h1>
-      <p class="mt-6 text-xl md:text-2xl text-slate-200 leading-relaxed max-w-3xl">
-        I'm a Rutgers finance student who studies the markets every day, from actively traded stocks and ETFs to long-term holdings, to build sharp, disciplined investment judgment.
-      </p>
-      <div class="mt-10 flex flex-wrap gap-4">
-        <a href="#projects" class="bg-red-600 hover:bg-red-500 px-7 py-3 rounded-full text-sm font-semibold transition">View My Projects</a>
-        <a href="https://www.linkedin.com/in/kevinzou21/" target="_blank" rel="noopener" class="border border-white/30 hover:bg-white/10 px-7 py-3 rounded-full text-sm font-semibold transition">LinkedIn &rarr;</a>
-      </div>
-    </div>
-    <div class="md:col-span-4 flex justify-center md:justify-end">
-      <img src="headshot.jpg" alt="Headshot of Kevin Zou" class="w-44 h-44 md:w-60 md:h-60 rounded-full object-cover border-4 border-white/20 shadow-2xl">
-    </div>
-  </div>
-</section>
+<div class="ticker" aria-hidden="true"><div>
+<span>EQUITY RESEARCH</span><span><b>▲</b> DCF VALUATION</span><span>FINANCIAL MODELING</span><span><b>▲</b> ETF ANALYSIS</span><span>EXCEL</span><span><b>▲</b> SQL</span><span>PITCH PRESENTATIONS</span><span><b>▲</b> DAILY MARKET TRACKING</span>
+<span>EQUITY RESEARCH</span><span><b>▲</b> DCF VALUATION</span><span>FINANCIAL MODELING</span><span><b>▲</b> ETF ANALYSIS</span><span>EXCEL</span><span><b>▲</b> SQL</span><span>PITCH PRESENTATIONS</span><span><b>▲</b> DAILY MARKET TRACKING</span>
+</div></div>
 
-<!-- Skills -->
-<section id="skills" class="py-20 md:py-28 bg-slate-50">
-  <div class="max-w-6xl mx-auto px-6">
-    <p class="text-red-700 text-sm font-semibold uppercase tracking-widest">Skills</p>
-    <h2 class="mt-2 text-3xl md:text-4xl font-extrabold tracking-tight text-slate-950">What I bring to the table</h2>
-    <p class="mt-4 text-slate-600 max-w-2xl">Finance fundamentals paired with the analytical and communication tools to back up an investment idea.</p>
+<section id="skills"><div class="wrap">
+<p class="tag">01 / Skills</p>
+<h2>What I bring to the table</h2>
+<p class="sub">Finance fundamentals paired with the analytical and communication tools to back up an investment idea.</p>
+<div class="skills">
+<div class="sk"><h3>Finance &amp; Markets</h3><ul><li>Equity Research</li><li>DCF Valuation</li><li>Financial Statement Analysis</li><li>Stock &amp; ETF Analysis</li><li>Daily Market Tracking</li></ul></div>
+<div class="sk"><h3>Technical &amp; Analytics</h3><ul><li>Microsoft Excel</li><li>Financial Modeling</li><li>SQL</li><li>Database Design</li></ul></div>
+<div class="sk"><h3>Professional</h3><ul><li>Pitch Presentations</li><li>Teamwork</li><li>Market Research &amp; Surveys</li><li>Canva</li><li>Strategic Thinking</li></ul></div>
+</div></div></section>
 
-    <div class="mt-12 grid md:grid-cols-3 gap-6">
-      <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
-        <h3 class="font-bold text-slate-950 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>Finance &amp; Markets</h3>
-        <ul class="mt-5 flex flex-wrap gap-2 text-sm">
-          <li class="bg-emerald-50 text-emerald-800 px-3 py-1.5 rounded-full">Equity Research</li>
-          <li class="bg-emerald-50 text-emerald-800 px-3 py-1.5 rounded-full">DCF Valuation</li>
-          <li class="bg-emerald-50 text-emerald-800 px-3 py-1.5 rounded-full">Financial Statement Analysis</li>
-          <li class="bg-emerald-50 text-emerald-800 px-3 py-1.5 rounded-full">Stock &amp; ETF Analysis</li>
-          <li class="bg-emerald-50 text-emerald-800 px-3 py-1.5 rounded-full">Daily Market Tracking</li>
-        </ul>
-      </div>
-      <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
-        <h3 class="font-bold text-slate-950 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-amber-500"></span>Technical &amp; Analytics</h3>
-        <ul class="mt-5 flex flex-wrap gap-2 text-sm">
-          <li class="bg-amber-50 text-amber-800 px-3 py-1.5 rounded-full">Microsoft Excel</li>
-          <li class="bg-amber-50 text-amber-800 px-3 py-1.5 rounded-full">Financial Modeling</li>
-          <li class="bg-amber-50 text-amber-800 px-3 py-1.5 rounded-full">SQL</li>
-          <li class="bg-amber-50 text-amber-800 px-3 py-1.5 rounded-full">Database Design</li>
-        </ul>
-      </div>
-      <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
-        <h3 class="font-bold text-slate-950 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500"></span>Professional</h3>
-        <ul class="mt-5 flex flex-wrap gap-2 text-sm">
-          <li class="bg-sky-50 text-sky-800 px-3 py-1.5 rounded-full">Pitch Presentations</li>
-          <li class="bg-sky-50 text-sky-800 px-3 py-1.5 rounded-full">Teamwork</li>
-          <li class="bg-sky-50 text-sky-800 px-3 py-1.5 rounded-full">Market Research &amp; Surveys</li>
-          <li class="bg-sky-50 text-sky-800 px-3 py-1.5 rounded-full">Canva</li>
-          <li class="bg-sky-50 text-sky-800 px-3 py-1.5 rounded-full">Strategic Thinking</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+<section id="projects" style="background:var(--card);border-block:1px solid var(--line)"><div class="wrap">
+<p class="tag">02 / Projects</p>
+<h2>Selected work</h2>
+<p class="sub">Coursework projects that show how I analyze, plan, and present. Click any project to open the full write-up.</p>
 
-<!-- Projects -->
-<section id="projects" class="py-20 md:py-28 bg-white">
-  <div class="max-w-6xl mx-auto px-6">
-    <p class="text-red-700 text-sm font-semibold uppercase tracking-widest">Projects</p>
-    <h2 class="mt-2 text-3xl md:text-4xl font-extrabold tracking-tight text-slate-950">Selected work</h2>
-    <p class="mt-4 text-slate-600 max-w-2xl">Coursework projects that show how I analyze, plan, and present, anchored in finance.</p>
+<div class="proj">
 
-    <div class="mt-12 grid md:grid-cols-2 gap-8">
+<details open>
+<summary><span class="num">01</span><div><h3>Tesla Valuation &amp; Stock Pitch</h3><p>Analyzed Tesla's financial statements, built a DCF model to project growth, and presented a buy/sell recommendation.</p><span class="chip">Financial Management</span><span class="chip">Excel</span><span class="chip">DCF</span></div><span class="plus">+</span></summary>
+<div class="body">
+<h4>Objective</h4><p>Estimate Tesla's intrinsic value and decide whether the stock is a buy, hold, or sell.</p>
+<h4>Approach</h4>
+<ul><li>Reviewed the income statement, balance sheet, and cash flow statement for margin, capex, and cash trends.</li>
+<li>Forecast free cash flow for 5 years, then discounted it at an estimated WACC with a terminal growth rate.</li>
+<li>Ran sensitivity tests on WACC and growth to see how much the answer moves.</li></ul>
+<h4>DCF snapshot ($B)</h4>
+<div class="wrapx"><table>
+<tr><th></th><th>Y1</th><th>Y2</th><th>Y3</th><th>Y4</th><th>Y5</th></tr>
+<tr><td>Free cash flow</td><td>6.0</td><td>7.5</td><td>9.2</td><td>11.0</td><td>12.8</td></tr>
+<tr><td>PV @ 10% WACC</td><td>5.5</td><td>6.2</td><td>6.9</td><td>7.5</td><td>8.0</td></tr>
+</table></div>
+<p>Terminal growth 3% → PV of terminal value ≈ $117B. Enterprise value ≈ $151B.</p>
+<p class="note">Sample figures shown for layout. Replace them with the numbers from your own Excel model before submitting.</p>
+<h4>Recommendation</h4><p>[Buy / Hold / Sell], with the 2–3 reasons from your pitch (valuation gap, growth drivers, key risks).</p>
+</div></details>
 
-      <article class="flex flex-col rounded-2xl border border-slate-200 p-8 bg-white shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300">
-        <div class="flex items-center justify-between">
-          <span class="text-xs font-bold uppercase tracking-widest text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full">Finance</span>
-          <span class="text-xs text-slate-500">Financial Management</span>
-        </div>
-        <h3 class="mt-5 text-xl font-bold text-slate-950">Tesla Valuation &amp; Stock Pitch</h3>
-        <p class="mt-3 text-slate-600 leading-relaxed flex-grow">Analyzed Tesla's financial statements, built a discounted cash flow model to project growth, and presented a buy/sell recommendation.</p>
-        <p class="mt-4 text-xs text-slate-500">Tools: Excel &bull; DCF &bull; Equity Research</p>
-        <a href="assets/finance-pitch.pdf" class="mt-5 text-sm font-semibold text-red-700 hover:underline">View Pitch Deck &rarr;</a>
-      </article>
+<details>
+<summary><span class="num">02</span><div><h3>Rutgers Dining Gen-Z Rebrand</h3><p>A targeted social media and loyalty campaign, informed by student surveys, to boost engagement at campus dining halls.</p><span class="chip">Intro to Marketing</span><span class="chip">Surveys</span><span class="chip">Canva</span></div><span class="plus">+</span></summary>
+<div class="body">
+<h4>Problem</h4><p>Many students see dining halls as a last resort, not a place to meet friends or try new food.</p>
+<h4>Research</h4><p>Surveyed fellow students on visit frequency, what they value (price, variety, convenience), and which social platforms they use.</p>
+<h4>Campaign</h4>
+<ul><li><b>Brand voice:</b> casual, funny, student-made.</li>
+<li><b>Social:</b> short videos of "dish of the day" and student taste tests on Instagram and TikTok.</li>
+<li><b>Loyalty:</b> a punch-card or app stamp system, with a free item after 10 visits.</li>
+<li><b>Metrics:</b> swipes per week, follower growth, loyalty sign-ups.</li></ul>
+<p class="note">Add your real survey numbers (e.g., "62% of 80 respondents...") and Canva screenshots here.</p>
+</div></details>
 
-      <article class="flex flex-col rounded-2xl border border-slate-200 p-8 bg-white shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300">
-        <div class="flex items-center justify-between">
-          <span class="text-xs font-bold uppercase tracking-widest text-sky-700 bg-sky-100 px-3 py-1 rounded-full">Marketing</span>
-          <span class="text-xs text-slate-500">Intro to Marketing</span>
-        </div>
-        <h3 class="mt-5 text-xl font-bold text-slate-950">Rutgers Dining Gen-Z Rebrand</h3>
-        <p class="mt-3 text-slate-600 leading-relaxed flex-grow">Created a targeted social media and loyalty campaign, informed by student surveys, to boost engagement at campus dining halls.</p>
-        <p class="mt-4 text-xs text-slate-500">Tools: Surveys &bull; Canva</p>
-        <a href="assets/marketing-deck.pdf" class="mt-5 text-sm font-semibold text-red-700 hover:underline">View Campaign &rarr;</a>
-      </article>
+<details>
+<summary><span class="num">03</span><div><h3>Campus Transit Database Schema</h3><p>A relational database to track bus arrivals and help reduce campus overcrowding.</p><span class="chip">MIS</span><span class="chip">SQL</span><span class="chip">ERD</span></div><span class="plus">+</span></summary>
+<div class="body">
+<h4>Goal</h4><p>Store bus arrivals and rider counts so planners can spot overcrowded routes and times.</p>
+<h4>Schema</h4>
+<pre>CREATE TABLE routes (
+  route_id   INT PRIMARY KEY,
+  route_name VARCHAR(50) NOT NULL
+);
+CREATE TABLE stops (
+  stop_id   INT PRIMARY KEY,
+  stop_name VARCHAR(80) NOT NULL,
+  campus    VARCHAR(30)
+);
+CREATE TABLE buses (
+  bus_id   INT PRIMARY KEY,
+  route_id INT REFERENCES routes(route_id),
+  capacity INT NOT NULL
+);
+CREATE TABLE arrivals (
+  arrival_id INT PRIMARY KEY,
+  bus_id     INT REFERENCES buses(bus_id),
+  stop_id    INT REFERENCES stops(stop_id),
+  arrived_at TIMESTAMP NOT NULL,
+  riders     INT
+);</pre>
+<h4>Sample query: most crowded stops</h4>
+<pre>SELECT s.stop_name,
+       ROUND(AVG(a.riders * 1.0 / b.capacity), 2) AS avg_load
+FROM arrivals a
+JOIN buses b ON a.bus_id = b.bus_id
+JOIN stops s ON a.stop_id = s.stop_id
+GROUP BY s.stop_name
+ORDER BY avg_load DESC
+LIMIT 5;</pre>
+<p class="note">Add your ERD image here with an &lt;img&gt; tag if you have one.</p>
+</div></details>
 
-      <article class="flex flex-col rounded-2xl border border-slate-200 p-8 bg-white shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300">
-        <div class="flex items-center justify-between">
-          <span class="text-xs font-bold uppercase tracking-widest text-amber-700 bg-amber-100 px-3 py-1 rounded-full">Analytics (MIS)</span>
-          <span class="text-xs text-slate-500">Management Info Systems</span>
-        </div>
-        <h3 class="mt-5 text-xl font-bold text-slate-950">Campus Transit Database Schema</h3>
-        <p class="mt-3 text-slate-600 leading-relaxed flex-grow">Designed a relational database to track bus arrivals and help reduce campus overcrowding.</p>
-        <p class="mt-4 text-xs text-slate-500">Tools: SQL &bull; ERD Design</p>
-        <a href="assets/mis-dashboard.png" class="mt-5 text-sm font-semibold text-red-700 hover:underline">View ERD &rarr;</a>
-      </article>
+<details>
+<summary><span class="num">04</span><div><h3>Eco-Pack Venture Pitch</h3><p>A business plan and revenue model for a zero-waste container delivery service on campus.</p><span class="chip">Intro to Business</span><span class="chip">Pitch Deck</span><span class="chip">Revenue Model</span></div><span class="plus">+</span></summary>
+<div class="body">
+<h4>Idea</h4><p>Students order meals in reusable containers, and the containers are picked up, cleaned, and reused. That cuts campus takeout waste.</p>
+<h4>Revenue model (weekly, illustrative)</h4>
+<div class="wrapx"><table>
+<tr><th>Item</th><th>Amount</th></tr>
+<tr><td>Subscribers</td><td>300</td></tr>
+<tr><td>Fee per subscriber</td><td>$8</td></tr>
+<tr><td>Revenue</td><td>$2,400</td></tr>
+<tr><td>Cleaning + logistics</td><td>($1,300)</td></tr>
+<tr><td>Container replacement</td><td>($300)</td></tr>
+<tr><td>Weekly profit</td><td>$800</td></tr>
+</table></div>
+<p class="note">Illustrative numbers. Swap in the assumptions from your own plan.</p>
+<h4>Next steps</h4><p>Pilot at one dining hall, then expand to partner restaurants.</p>
+</div></details>
 
-      <article class="flex flex-col rounded-2xl border border-slate-200 p-8 bg-white shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300">
-        <div class="flex items-center justify-between">
-          <span class="text-xs font-bold uppercase tracking-widest text-rose-700 bg-rose-100 px-3 py-1 rounded-full">Strategy</span>
-          <span class="text-xs text-slate-500">Intro to Business</span>
-        </div>
-        <h3 class="mt-5 text-xl font-bold text-slate-950">Eco-Pack Venture Pitch</h3>
-        <p class="mt-3 text-slate-600 leading-relaxed flex-grow">Developed a business plan and revenue model for a zero-waste container delivery service on campus.</p>
-        <p class="mt-4 text-xs text-slate-500">Tools: Pitch Deck &bull; Revenue Model</p>
-        <a href="assets/startup-plan.pdf" class="mt-5 text-sm font-semibold text-red-700 hover:underline">View Plan &rarr;</a>
-      </article>
+</div></div></section>
 
-    </div>
-  </div>
-</section>
-
-<!-- Contact -->
-<section id="contact" class="py-20 md:py-24 bg-slate-950 text-white text-center">
-  <div class="max-w-2xl mx-auto px-6">
-    <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Let's connect</h2>
-    <p class="mt-4 text-slate-300">Open to internships, networking, and conversations about the markets.</p>
-    <div class="mt-8 flex flex-wrap justify-center gap-4">
-      <a href="mailto:kz375@scarletmail.rutgers.edu" class="bg-red-600 hover:bg-red-500 px-7 py-3 rounded-full text-sm font-semibold transition">Email Me</a>
-      <a href="https://www.linkedin.com/in/kevinzou21/" target="_blank" rel="noopener" class="border border-white/30 hover:bg-white/10 px-7 py-3 rounded-full text-sm font-semibold transition">LinkedIn</a>
-      <a href="resume.pdf" class="border border-white/30 hover:bg-white/10 px-7 py-3 rounded-full text-sm font-semibold transition">Resume (PDF)</a>
-    </div>
-  </div>
-</section>
-
-<footer class="bg-slate-950 border-t border-white/10 py-6 text-center text-xs text-slate-500">
-  &copy; 2026 Kevin Zou &bull; Rutgers Business School &bull; Built with Tailwind CSS &bull; Hosted on GitHub Pages
-</footer>
-
+<section id="contact" class="contact"><div class="wrap">
+<p class="tag">03 / Contact</p>
+<h2>Let's connect.</h2>
+<p>Open to internships, networking, and conversations about the markets.</p>
+<div class="btns" style="justify-content:center">
+<a class="btn p" href="mailto:kz375@scarletmail.rutgers.edu">Email me</a>
+<a class="btn" href="https://www.linkedin.com/in/kevinzou21/" target="_blank" rel="noopener">LinkedIn</a>
+<a class="btn" href="resume.pdf">Resume (PDF)</a>
+</div></div></section>
+</main>
+<footer><div class="wrap">© 2026 Kevin Zou · Rutgers Business School · Hosted on GitHub Pages</div></footer>
 </body>
 </html>
